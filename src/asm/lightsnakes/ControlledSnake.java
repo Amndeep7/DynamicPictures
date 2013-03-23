@@ -25,11 +25,6 @@ public class ControlledSnake extends Snake
 		return isBeingTracked;
 	}
 
-	public void setAngle(double a)
-	{
-		angle = a;
-	}
-
 	public void setSpeed(double s)
 	{
 		speed = s;
@@ -50,25 +45,25 @@ public class ControlledSnake extends Snake
 		myPos = y;
 	}
 
-	public double constrainedAngle(double a)
+	public double constrainAngle(double angle)
 	{
-		a %= 2 * Math.PI;
-		if(a < 0)
-			a += 2 * Math.PI;
-		return a;
+		angle %= 2 * Math.PI;
+		if(angle < 0)
+			angle += 2 * Math.PI;
+		return angle;
 	}
 
-	public double angleDiff(double a, double b)
+	public double angleDifference(double angle1, double angle2)
 	{
-		double dif = (b - a + Math.PI) % (2 * Math.PI);
+		double dif = (angle2 - angle1 + Math.PI) % (2 * Math.PI);
 		if(dif < 0)
 			dif += 2 * Math.PI;
 		return dif - Math.PI;
 	}
 
-	public double bisectAngle(double a, double b)
+	public double divideAngle(double angle1, double angle2, double fraction)
 	{
-		return constrainedAngle(a + angleDiff(a, b) * 0.5);
+		return constrainAngle(angle1 + angleDifference(angle1, angle2) * fraction);
 	}
 
 	public void updateDirection()
@@ -77,7 +72,7 @@ public class ControlledSnake extends Snake
 
 		if(isBeingTracked)
 		{
-			angle = bisectAngle(angle, constrainedAngle(Math.atan2(myPos - yPos, mxPos - xPos)));
+			angle = divideAngle(angle, constrainAngle(Math.atan2(myPos - yPos, mxPos - xPos)), 0.15);
 		}
 	}
 }
