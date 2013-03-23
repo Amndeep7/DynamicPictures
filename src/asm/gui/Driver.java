@@ -21,7 +21,7 @@ public class Driver
 }
 
 /*
- * maybe create separate color pallet class that'll have stuff like this, or just two colors (think latin project), etc. maybe have "food" so that the snakes can eat it to grow
- * longer/brighter/have more "impact"s corollary: if don't eat food, lose brightness/"impact"(alpha)/length/combo of these corollary: ai behind them to try to get food corollary: maybe can
- * eat other snakes maybe make snakes not squares maybe add ui sort of stuff
+ * maybe create separate color pallet class that'll have stuff like this, or just two colors (think latin project), etc. maybe have "food" so that the snakes
+ * can eat it to grow longer/brighter/have more "impact"s corollary: if don't eat food, lose brightness/"impact"(alpha)/length/combo of these corollary: ai
+ * behind them to try to get food corollary: maybe can eat other snakes maybe make snakes not squares maybe add ui sort of stuff
  */

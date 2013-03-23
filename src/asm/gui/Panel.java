@@ -62,8 +62,8 @@ public class Panel extends JPanel
 			hsv[0] += golden_ratio;
 			hsv[0] %= 1;
 
-			snakes.add(new Snake(random.nextInt(FRAMEX), random.nextInt(FRAMEY), random.nextInt(100), random.nextInt(100), Math.random() * 2 * Math.PI, Math.random() * 0.8,
-			          Math.random() * 75, HSVtoRGBA(hsv, (float) (Math.random() * 0.3))));
+			snakes.add(new Snake(random.nextInt(FRAMEX), random.nextInt(FRAMEY), random.nextInt(100), random.nextInt(100), Math.random() * 2 * Math.PI, Math
+			          .random() * 0.8, Math.random() * 75, HSVtoRGBA(hsv, (float) (Math.random() * 0.3))));
 			int limit = random.nextInt(10);
 			for(int y = 0; y < limit; y++)
 				snakes.get(snakes.size() - 1).addTail();
@@ -195,8 +195,8 @@ public class Panel extends JPanel
 
 		public void mouseMoved(MouseEvent e)
 		{
-			controlled.setMouseXPosition((int)((e.getX()/(double)Driver.REALFRAMEX)*FRAMEX));
-			controlled.setMouseYPosition((int)((e.getY()/(double)Driver.REALFRAMEY)*FRAMEY));
+			controlled.setMouseXPosition((int) ((e.getX() / (double) Driver.REALFRAMEX) * FRAMEX));
+			controlled.setMouseYPosition((int) ((e.getY() / (double) Driver.REALFRAMEY) * FRAMEY));
 		}
 	}
 }
