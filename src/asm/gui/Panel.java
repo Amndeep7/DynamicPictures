@@ -14,7 +14,6 @@ import javax.swing.Timer;
 import javax.swing.event.MouseInputAdapter;
 
 import asm.lightsnakes.ControlledSnake;
-import asm.lightsnakes.Grid;
 import asm.lightsnakes.Snake;
 
 public class Panel extends JPanel
@@ -32,8 +31,9 @@ public class Panel extends JPanel
 	Timer view;
 	Timer tick;
 
+	Color backgroundColor;
+
 	int granularity = 20;
-	Grid grid;
 	ArrayList<Snake> snakes;
 	ControlledSnake controlled;
 
@@ -46,10 +46,10 @@ public class Panel extends JPanel
 		myImage = new BufferedImage(FRAMEX, FRAMEY, BufferedImage.TYPE_INT_ARGB);
 		myBuffer = myImage.getGraphics();
 
+		backgroundColor = new Color(0, 0, 0, 20);
 		myBuffer.setColor(Color.BLACK);
 		myBuffer.fillRect(0, 0, FRAMEX, FRAMEY);
 
-		grid = new Grid(FRAMEX / granularity, FRAMEY / granularity, new Color(0, 0, 0, 20));
 		snakes = new ArrayList<Snake>();
 
 		float[] hsv = new float[3];
@@ -133,7 +133,8 @@ public class Panel extends JPanel
 	{
 		super.paintComponent(g);
 
-		grid.draw(myBuffer, granularity);
+		myBuffer.setColor(backgroundColor);
+		myBuffer.fillRect(0, 0, FRAMEX, FRAMEY);
 
 		for(Snake s : snakes)
 		{
